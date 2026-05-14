@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotechnoe — Web sémantique, IA & Linked Data</title>
+  <meta name="description" content="Cotechnoe conçoit des solutions en IA générative RAG, web sémantique et ontologies pour transformer les données en informations interopérables et intelligentes." />
+  <meta name="author" content="Michel Héon, Ph.D." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cotechnoe — Web sémantique, IA & Linked Data" />
+  <meta property="og:description" content="Donnez du sens à vos données. Expert en Web sémantique, IA & Linked Data à Montréal." />
+  <meta property="og:url" content="https://cotechnoe.github.io" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --brand:   #2563eb;
+      --brand-dark: #1e40af;
+      --accent:  #0ea5e9;
+      --bg:      #0f172a;
+      --surface: #1e293b;
+      --border:  #334155;
+      --text:    #e2e8f0;
+      --muted:   #94a3b8;
+      --tag-bg:  #1d3556;
+      --tag-fg:  #7dd3fc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Header / Hero ── */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 0 3rem;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      border: 3px solid var(--brand);
+      margin-bottom: 1.25rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #f1f5f9;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 0.35rem;
+    }
+
+    .bio {
+      max-width: 640px;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    /* ── Badges ── */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      border: 1px solid #1e4a7a;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    /* ── Social links ── */
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1.75rem;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .social a:hover {
+      border-color: var(--accent);
+      background: #1a2e44;
+      text-decoration: none;
+    }
+
+    /* ── Sections ── */
+    section { padding: 2.75rem 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Services grid ── */
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.35rem;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--brand); }
+
+    .card h3 { font-size: 0.97rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.45rem; }
+    .card p  { font-size: 0.86rem; color: var(--muted); }
+
+    /* ── Repo cards ── */
+    .repo-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+    .repo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.15s;
+    }
+    .repo-card:hover { border-color: var(--brand); }
+    .repo-card a { color: var(--accent); font-weight: 600; font-size: 0.94rem; }
+    .repo-card p { font-size: 0.83rem; color: var(--muted); flex: 1; }
+
+    .repo-meta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .lang-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      display: inline-block; margin-right: 4px; vertical-align: middle;
+    }
+    .repo-meta span { font-size: 0.78rem; color: var(--muted); display: inline-flex; align-items: center; }
+
+    /* ── Products / Marketplace ── */
+    .product-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+    .product {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .product h3 { font-size: 0.95rem; font-weight: 600; color: #f1f5f9; }
+    .product p  { font-size: 0.83rem; color: var(--muted); flex: 1; }
+    .product .links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .product .links a {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--accent);
+    }
+    .product .links a:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero ──────────────────────────────────────────────── -->
+<header>
+  <div class="container">
+    <img
+      class="avatar"
+      src="https://avatars.githubusercontent.com/u/63109118?v=4"
+      alt="Cotechnoe avatar"
+    />
+    <h1>Cotechnoe inc.</h1>
+    <p class="tagline">Donnez du sens à vos données.</p>
+    <p class="bio">
+      Expert en Web sémantique, IA &amp; Linked Data — Montréal, Canada.<br />
+      Solutions en IA générative RAG, ontologies et graphes de connaissances
+      pour transformer les données en ressources interopérables et intelligentes.
+    </p>
+
+    <div class="badges">
+      <span class="badge">🌐 Web sémantique &amp; RDF/OWL</span>
+      <span class="badge">🤖 IA générative &amp; RAG</span>
+      <span class="badge">🔗 Knowledge Graphs</span>
+      <span class="badge">☁️ Azure Marketplace Partner</span>
+      <span class="badge">⚙️ DevOps &amp; CI/CD</span>
+    </div>
+
+    <nav class="social">
+      <a href="https://cotechnoe.com" target="_blank" rel="noopener">🌍 cotechnoe.com</a>
+      <a href="https://github.com/Cotechnoe" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/company/cotechnoe/" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a href="https://www.researchgate.net/profile/Michel-Heon" target="_blank" rel="noopener">🔬 ResearchGate</a>
+      <a href="https://www.youtube.com/@michelheon-cotechnoe1405" target="_blank" rel="noopener">▶ YouTube</a>
+      <a href="https://websemantique.ca" target="_blank" rel="noopener">📚 websemantique.ca</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Services ─────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>🛠 Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🌐 Web sémantique &amp; Linked Data</h3>
+        <p>Modélisation RDF/OWL, ontologies, SPARQL endpoints et intégration de données ouvertes liées (LOD).</p>
+      </div>
+      <div class="card">
+        <h3>🤖 IA générative &amp; RAG</h3>
+        <p>Systèmes Retrieval-Augmented Generation, LLM appliqués aux données métier et graphes sémantiques.</p>
+      </div>
+      <div class="card">
+        <h3>🔗 Knowledge Graphs</h3>
+        <p>Conception et déploiement de graphes de connaissances à grande échelle pour organisations de recherche et entreprises.</p>
+      </div>
+      <div class="card">
+        <h3>☁️ Cloud Azure &amp; AWS</h3>
+        <p>Architecture, déploiement et intégration d'applications cloud natives — serverless, conteneurs et services managés.</p>
+      </div>
+      <div class="card">
+        <h3>⚙️ DevOps &amp; Agile Scrum</h3>
+        <p>Livraison continue, automatisation des pipelines CI/CD et gestion de projet agile pour des déploiements fiables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Projets GitHub épinglés ───────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>📌 Projets GitHub</h2>
+    <div class="repo-grid">
+
+      <div class="repo-card">
+        <a href="https://github.com/Cotechnoe/fuseki-azure-marketplace-docs" target="_blank" rel="noopener">fuseki-azure-marketplace-docs</a>
+        <p>Documentation et ressources de support pour Apache Jena Fuseki VM sur Azure Marketplace — setup, exemples et cloud-init.</p>
+        <div class="repo-meta">
+          <span><span class="lang-dot" style="background:#e34c26"></span>Makefile</span>
+        </div>
+      </div>
+
+      <div class="repo-card">
+        <a href="https://github.com/Cotechnoe/vivo-azure-marketplace-docs" target="_blank" rel="noopener">vivo-azure-marketplace-docs</a>
+        <p>Guide de déploiement de VIVO Research Profiles sur Azure — configuration post-installation, i18n et chargement de données.</p>
+        <div class="repo-meta">
+          <span><span class="lang-dot" style="background:#89e051"></span>Shell</span>
+          <span>⭐ 1</span>
+        </div>
+      </div>
+
+      <div class="repo-card">
+        <a href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs" target="_blank" rel="noopener">dspace9-azure-marketplace-docs</a>
+        <p>Documentation DSpace 9 sur Azure Marketplace — architecture, guides DevOps et procédures de déploiement.</p>
+        <div class="repo-meta">
+          <span><span class="lang-dot" style="background:#89e051"></span>Shell</span>
+        </div>
+      </div>
+
+      <div class="repo-card">
+        <a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs" target="_blank" rel="noopener">smw6-azure-marketplace-docs</a>
+        <p>Documentation pour Semantic MediaWiki 6 (SMW6) déployé via Azure Marketplace.</p>
+        <div class="repo-meta">
+          <span><span class="lang-dot" style="background:#89e051"></span>Shell</span>
+        </div>
+      </div>
+
+      <div class="repo-card">
+        <a href="https://github.com/Cotechnoe/OntoCASE4G-OWL" target="_blank" rel="noopener">OntoCASE4G-OWL</a>
+        <p>Outil de modélisation ontologique OWL — environnement de conception et génération d'ontologies OWL.</p>
+        <div class="repo-meta">
+          <span><span class="lang-dot" style="background:#b07219"></span>Java</span>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">
+      → <a href="https://github.com/Cotechnoe?tab=repositories" target="_blank" rel="noopener">Voir tous les dépôts (17)</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── Azure Marketplace ─────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>☁️ Produits sur Azure Marketplace</h2>
+    <div class="product-list">
+
+      <div class="product">
+        <h3>Apache Jena Fuseki</h3>
+        <p>Triplestore SPARQL industriel prêt à déployer sur Azure Container Apps. Solution clé en main pour vos données RDF.</p>
+        <div class="links">
+          <a href="https://cotechnoe.com/marketplace/fuseki/" target="_blank" rel="noopener">Détails</a>
+          <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.apache-jena-fuseki" target="_blank" rel="noopener">Azure ↗</a>
+          <a href="https://github.com/Cotechnoe/fuseki-azure-marketplace-docs" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>VIVO Research Profiles</h3>
+        <p>Plateforme de profils de recherche basée sur des ontologies OWL. Idéale pour universités et instituts de recherche.</p>
+        <div class="links">
+          <a href="https://cotechnoe.com/marketplace/vivo/" target="_blank" rel="noopener">Détails</a>
+          <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.vivo-research-profiles" target="_blank" rel="noopener">Azure ↗</a>
+          <a href="https://github.com/Cotechnoe/vivo-azure-marketplace-docs" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>DSpace 9</h3>
+        <p>Dépôt institutionnel DSpace 9 sur Azure Marketplace — solution clé en main pour bibliothèques et archives numériques.</p>
+        <div class="links">
+          <a href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Semantic MediaWiki 6</h3>
+        <p>Wiki sémantique extensible pour la gestion et le partage de connaissances structurées dans votre organisation.</p>
+        <div class="links">
+          <a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────── -->
+<section>
+  <div class="container" style="text-align:center;">
+    <h2 style="justify-content:center;">📬 Contact</h2>
+    <p style="color:var(--muted); max-width:520px; margin:0 auto 1.25rem;">
+      Consultation initiale gratuite pour évaluer comment rendre vos données FAIR
+      et opérationnelles pour l'IA.
+    </p>
+    <a
+      href="https://cotechnoe.com/contact/"
+      target="_blank" rel="noopener"
+      style="
+        display:inline-block;
+        background:var(--brand);
+        color:#fff;
+        padding:0.6rem 1.5rem;
+        border-radius:7px;
+        font-weight:600;
+        font-size:0.92rem;
+        transition:background 0.15s;
+      "
+      onmouseover="this.style.background='#1e40af'"
+      onmouseout="this.style.background='#2563eb'"
+    >Nous contacter →</a>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────── -->
+<footer>
+  <p>
+    © 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> —
+    Michel Héon, Ph.D. &nbsp;|&nbsp;
+    Montréal, Canada &nbsp;|&nbsp;
+    <a href="https://github.com/Cotechnoe" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/company/cotechnoe/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://websemantique.ca" target="_blank" rel="noopener">websemantique.ca</a>
+  </p>
+  <p style="margin-top:0.4rem; font-size:0.78rem; color:#475569;">
+    Microsoft ISV Partner &nbsp;·&nbsp; Expert-TI certifié PME — AQIII &nbsp;·&nbsp;
+    Conseiller en architecture d'entreprise — UQAM &nbsp;·&nbsp;
+    Ph.D. Informatique cognitive — UQAM (2011)
+  </p>
+</footer>
+
+</body>
+</html>
