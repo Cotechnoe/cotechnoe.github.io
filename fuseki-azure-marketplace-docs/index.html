@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apache Jena Fuseki — Azure Marketplace | Cotechnoe</title>
+  <meta name="description" content="Déployez Apache Jena Fuseki sur Azure Marketplace — triplestore SPARQL 1.1 haute performance, Ubuntu Server 24.04 LTS, prêt à l'emploi." />
+  <meta name="author" content="Michel Héon, Ph.D." />
+  <style>
+    :root {
+      --brand:      #2563eb;
+      --brand-dark: #1e40af;
+      --accent:     #0ea5e9;
+      --bg:         #0f172a;
+      --surface:    #1e293b;
+      --border:     #334155;
+      --text:       #e2e8f0;
+      --muted:      #94a3b8;
+      --tag-bg:     #1d3556;
+      --tag-fg:     #7dd3fc;
+      --green:      #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Top nav ── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    .topnav .container { display: flex; align-items: center; gap: 1rem; }
+    .topnav a { color: var(--muted); }
+    .topnav a:hover { color: var(--accent); text-decoration: none; }
+    .topnav .sep { color: var(--border); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0 2.5rem;
+    }
+    .hero-inner { display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .product-icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; color: #f1f5f9; }
+    .hero .version {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-top: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 7px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--border); }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .feature h3 { font-size: 0.9rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.3rem; }
+    .feature p  { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── Stack table ── */
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .stack-table th, .stack-table td {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-table th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stack-table td { color: var(--text); }
+    .stack-table tr:last-child td { border-bottom: none; }
+
+    /* ── Code block ── */
+    pre {
+      background: #0a111f;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      color: #a5f3fc;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+    code { font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+    /* ── Doc link list ── */
+    .doc-links { display: flex; flex-direction: column; gap: 0.55rem; }
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.87rem;
+      color: var(--accent);
+      transition: border-color 0.15s;
+    }
+    .doc-link:hover { border-color: var(--accent); text-decoration: none; }
+    .doc-link .doc-desc { color: var(--muted); font-size: 0.8rem; margin-top: 0.1rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Top nav ── -->
+<nav class="topnav">
+  <div class="container">
+    <a href="../index.html">← Cotechnoe</a>
+    <span class="sep">/</span>
+    <span style="color:var(--text);">Apache Jena Fuseki</span>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="product-icon">🔥</div>
+      <div>
+        <h1>Apache Jena Fuseki</h1>
+        <span class="version">Ubuntu Server 24.04 LTS · TDB2 · SPARQL 1.1</span>
+        <p>
+          Triplestore RDF haute performance prêt à déployer sur Microsoft Azure.
+          Endpoint SPARQL 1.1 opérationnel dès le premier démarrage, avec authentification
+          Shiro et automatisation Makefile incluses.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025"
+             target="_blank" rel="noopener">
+            🛒 Déployer sur Azure
+          </a>
+          <a class="btn btn-secondary"
+             href="https://github.com/Cotechnoe/fuseki-azure-marketplace-docs"
+             target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Stack ── -->
+<section>
+  <div class="container">
+    <h2>🏗 Environnement de déploiement</h2>
+    <table class="stack-table">
+      <thead>
+        <tr><th>Composant</th><th>Valeur</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Système d'exploitation</td><td>Ubuntu Server 24.04 LTS</td></tr>
+        <tr><td>Moteur RDF</td><td>Apache Jena Fuseki avec backend TDB2</td></tr>
+        <tr><td>Accès Web</td><td>Interface Fuseki Web — port 3030</td></tr>
+        <tr><td>Sécurité</td><td>Authentification rôle-based via Apache Shiro</td></tr>
+        <tr><td>Provisionnement</td><td>cloud-init — configuration automatique au premier démarrage</td></tr>
+        <tr><td>VM recommandées</td><td>B1ms, D2s_v3, E4s_v3 (Azure)</td></tr>
+        <tr><td>Automatisation</td><td>Makefile inclus pour déploiement des services et sécurisation Shiro</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section>
+  <div class="container">
+    <h2>✨ Fonctionnalités clés</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>🔗 SPARQL 1.1 complet</h3>
+        <p>Endpoint SPARQL 1.1 Query, Update et Graph Store Protocol opérationnel dès le démarrage.</p>
+      </div>
+      <div class="feature">
+        <h3>🗄 Stockage TDB2 persistant</h3>
+        <p>Datasets RDF persistants sur disque via TDB2 — ou en mémoire pour les environnements de test.</p>
+      </div>
+      <div class="feature">
+        <h3>🔐 Authentification Shiro</h3>
+        <p>Contrôle d'accès granulaire par rôle (admin, lecture, écriture) via Apache Shiro.</p>
+      </div>
+      <div class="feature">
+        <h3>⚙️ Makefile d'automatisation</h3>
+        <p>Déploiement de services systemd, gestion des mots de passe Shiro et redémarrage à distance en une commande.</p>
+      </div>
+      <div class="feature">
+        <h3>☁️ Optimisé Azure</h3>
+        <p>Image préconfigurée pour les SKU Azure courants — démarrage en moins de 5 minutes depuis le Marketplace.</p>
+      </div>
+      <div class="feature">
+        <h3>📦 cloud-init inclus</h3>
+        <p>Provisionnement automatique dès le premier démarrage — aucune configuration manuelle requise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick Start ── -->
+<section>
+  <div class="container">
+    <h2>🚀 Démarrage rapide</h2>
+
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
+      Après déploiement depuis Azure Marketplace, Fuseki est immédiatement accessible.
+    </p>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Accéder à l'interface Web</h3>
+    <pre><code>http://&lt;votre-ip-vm&gt;:3030</code></pre>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Déployer le service systemd via Makefile</h3>
+    <pre><code># Déployer le service sur la VM distante
+make service-deploy HOST=&lt;ip-vm&gt; SERVICE_FILE=fuseki-d2s-v3.service
+
+# Activer et démarrer le service
+make service-enable HOST=&lt;ip-vm&gt;
+make service-start  HOST=&lt;ip-vm&gt;</code></pre>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Sécuriser avec Shiro</h3>
+    <pre><code># Générer les credentials Shiro hashés
+make shiro-generate
+
+# Déployer la configuration Shiro sur la VM
+make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
+  </div>
+</section>
+
+<!-- ── Documentation ── -->
+<section>
+  <div class="container">
+    <h2>📚 Documentation</h2>
+    <div class="doc-links">
+      <a class="doc-link"
+         href="https://github.com/Cotechnoe/fuseki-azure-marketplace-docs"
+         target="_blank" rel="noopener">
+        <span>📁</span>
+        <div>
+          <div>Dépôt GitHub — fuseki-azure-marketplace-docs</div>
+          <div class="doc-desc">Scripts de déploiement, Makefile, configuration systemd et Shiro</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025"
+         target="_blank" rel="noopener">
+        <span>☁️</span>
+        <div>
+          <div>Offre Azure Marketplace — Apache Jena Fuseki</div>
+          <div class="doc-desc">Page officielle de l'offre — déploiement en un clic sur Azure</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://jena.apache.org/documentation/fuseki2/"
+         target="_blank" rel="noopener">
+        <span>📖</span>
+        <div>
+          <div>Documentation officielle Apache Jena Fuseki 2</div>
+          <div class="doc-desc">Référence complète — configuration, sécurité, SPARQL endpoints</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
+    <p style="margin-top:0.4rem;">
+      <a href="../index.html">← Retour à l'accueil</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
