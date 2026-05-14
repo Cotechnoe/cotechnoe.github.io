@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSpace 9 — Dépôt institutionnel — Azure Marketplace | Cotechnoe</title>
+  <meta name="description" content="Déployez DSpace 9 sur Azure Marketplace — dépôt institutionnel open source, REST API, Angular, PostgreSQL, Solr, HTTPS automatique." />
+  <meta name="author" content="Michel Héon, Ph.D." />
+  <style>
+    :root {
+      --brand:      #2563eb;
+      --brand-dark: #1e40af;
+      --accent:     #0ea5e9;
+      --bg:         #0f172a;
+      --surface:    #1e293b;
+      --border:     #334155;
+      --text:       #e2e8f0;
+      --muted:      #94a3b8;
+      --tag-bg:     #1d3556;
+      --tag-fg:     #7dd3fc;
+      --green:      #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Top nav ── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    .topnav .container { display: flex; align-items: center; gap: 1rem; }
+    .topnav a { color: var(--muted); }
+    .topnav a:hover { color: var(--accent); text-decoration: none; }
+    .topnav .sep { color: var(--border); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1a2a3f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0 2.5rem;
+    }
+    .hero-inner { display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .product-icon { font-size: 3.5rem; line-height: 1; flex-shrink: 0; }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; color: #f1f5f9; }
+    .hero .version {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-top: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 7px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--border); }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .feature h3 { font-size: 0.9rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.3rem; }
+    .feature p  { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── Stack table ── */
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .stack-table th, .stack-table td {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-table th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stack-table td { color: var(--text); }
+    .stack-table tr:last-child td { border-bottom: none; }
+
+    /* ── Quick start steps ── */
+    .steps { display: flex; flex-direction: column; gap: 1rem; }
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .step-num {
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      min-width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h3 { font-size: 0.9rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.3rem; }
+    .step-body p  { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .step-body code {
+      display: block;
+      background: #0b1220;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.5rem 0.75rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      color: #7dd3fc;
+      white-space: pre-wrap;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Services table ── */
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .services-table th, .services-table td {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .services-table th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .services-table td { color: var(--text); }
+    .services-table td code { background: #0b1220; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8rem; color: #7dd3fc; }
+    .services-table tr:last-child td { border-bottom: none; }
+
+    /* ── URL table ── */
+    .url-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .url-table th, .url-table td {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .url-table th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .url-table td { color: var(--text); }
+    .url-table td code { background: #0b1220; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8rem; color: #7dd3fc; }
+    .url-table tr:last-child td { border-bottom: none; }
+
+    /* ── Doc link list ── */
+    .doc-links { display: flex; flex-direction: column; gap: 0.55rem; }
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.87rem;
+      color: var(--accent);
+      transition: border-color 0.15s;
+    }
+    .doc-link:hover { border-color: var(--accent); text-decoration: none; }
+    .doc-link .doc-desc { color: var(--muted); font-size: 0.8rem; margin-top: 0.1rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Top nav ── -->
+<nav class="topnav">
+  <div class="container">
+    <a href="index.html">← Cotechnoe</a>
+    <span class="sep">/</span>
+    <span style="color:var(--text);">DSpace 9</span>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="product-icon">🏛</div>
+      <div>
+        <h1>DSpace 9 — Dépôt institutionnel</h1>
+        <span class="version">Ubuntu 22.04 LTS · REST API · Angular · HTTPS / Let's Encrypt</span>
+        <p>
+          Dépôt institutionnel open source de référence — déployez DSpace 9 en un clic sur Azure.
+          Stack complète préconfigurée : Tomcat (REST API), Angular (frontend),
+          Nginx, PostgreSQL, Solr et certificat HTTPS automatique.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.dspace9"
+             target="_blank" rel="noopener">
+            🛒 Déployer sur Azure
+          </a>
+          <a class="btn btn-secondary"
+             href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs"
+             target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Stack ── -->
+<section>
+  <div class="container">
+    <h2>🏗 Stack technique</h2>
+    <table class="stack-table">
+      <thead>
+        <tr><th>Composant</th><th>Valeur</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Système d'exploitation</td><td>Ubuntu 22.04 LTS</td></tr>
+        <tr><td>Application</td><td>DSpace 9.x</td></tr>
+        <tr><td>API REST</td><td>Tomcat (backend Java)</td></tr>
+        <tr><td>Interface utilisateur</td><td>Angular (frontend)</td></tr>
+        <tr><td>Reverse proxy / HTTPS</td><td>Nginx + Let's Encrypt (automatique)</td></tr>
+        <tr><td>Base de données</td><td>PostgreSQL</td></tr>
+        <tr><td>Moteur de recherche</td><td>Apache Solr</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section>
+  <div class="container">
+    <h2>✨ Fonctionnalités clés</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>📦 REST API moderne</h3>
+        <p>API REST complète HAL+JSON pour l'intégration avec des systèmes tiers et des clients Angular.</p>
+      </div>
+      <div class="feature">
+        <h3>🖥 Interface Angular</h3>
+        <p>Frontend Angular entièrement responsive — navigation, dépôt et consultation de collections.</p>
+      </div>
+      <div class="feature">
+        <h3>🔍 Recherche Solr</h3>
+        <p>Recherche full-text et par facettes — indexation des métadonnées et du contenu des objets numériques.</p>
+      </div>
+      <div class="feature">
+        <h3>🔒 HTTPS automatique</h3>
+        <p>Certificate Let's Encrypt provisionné automatiquement — surveillance DNS par <code>dspace-dns-watch.timer</code>.</p>
+      </div>
+      <div class="feature">
+        <h3>🗄 PostgreSQL intégré</h3>
+        <p>Base de données relationnelle préconfigurée pour DSpace — schéma, utilisateurs et droits initialisés.</p>
+      </div>
+      <div class="feature">
+        <h3>☁️ Prêt pour Azure</h3>
+        <p>Déploiement via cloud-init — VM opérationnelle en quelques minutes depuis Azure Marketplace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section>
+  <div class="container">
+    <h2>⚙️ Services systemd</h2>
+    <table class="services-table">
+      <thead>
+        <tr><th>Service</th><th>Rôle</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>tomcat</code></td><td>API REST DSpace (backend Java)</td></tr>
+        <tr><td><code>dspace-frontend</code></td><td>Interface Angular (frontend)</td></tr>
+        <tr><td><code>nginx</code></td><td>Reverse proxy — routage HTTP/HTTPS, terminaison TLS</td></tr>
+        <tr><td><code>postgresql</code></td><td>Base de données relationnelle</td></tr>
+        <tr><td><code>solr</code></td><td>Moteur de recherche et d'indexation</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Quick start ── -->
+<section>
+  <div class="container">
+    <h2>🚀 Mise en route</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Connexion SSH à la VM</h3>
+          <p>Après déploiement depuis le Marketplace, connectez-vous en SSH avec le nom d'utilisateur choisi.</p>
+          <code>ssh &lt;admin-username&gt;@&lt;your-vm-ip&gt;</code>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Créer le compte administrateur DSpace</h3>
+          <p>Créez le premier compte administrateur via la ligne de commande DSpace.</p>
+          <code>sudo /opt/dspace/bin/dspace create-administrator</code>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Vérifier les services</h3>
+          <p>Confirmez que tous les services sont bien démarrés.</p>
+          <code>sudo systemctl status tomcat
+sudo systemctl status dspace-frontend
+sudo systemctl status nginx
+sudo systemctl status postgresql
+sudo systemctl status solr</code>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Accéder aux interfaces</h3>
+          <p>DSpace expose plusieurs points d'accès sur votre VM :</p>
+          <table class="url-table" style="margin-top:0.5rem;">
+            <thead><tr><th>Interface</th><th>URL</th></tr></thead>
+            <tbody>
+              <tr><td>Frontend Angular</td><td><code>https://&lt;ip&gt;/</code></td></tr>
+              <tr><td>Connexion admin</td><td><code>https://&lt;ip&gt;/login</code></td></tr>
+              <tr><td>REST API</td><td><code>https://&lt;ip&gt;/server</code></td></tr>
+              <tr><td>Solr (local uniquement)</td><td><code>http://localhost:8983/solr</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Certificat SSL / Let's Encrypt</h3>
+          <p>
+            Un certificat auto-signé est actif par défaut.
+            Dès qu'un nom de domaine (FQDN) résout vers votre IP,
+            <code>dspace-dns-watch.timer</code> détecte la résolution et
+            provisionne automatiquement un certificat Let's Encrypt.
+          </p>
+          <code>sudo cat /root/.dspace-credentials</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Ressources ── -->
+<section>
+  <div class="container">
+    <h2>🔗 Ressources</h2>
+    <div class="doc-links">
+      <a class="doc-link"
+         href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs"
+         target="_blank" rel="noopener">
+        <span>📁</span>
+        <div>
+          <div>Dépôt GitHub — dspace9-azure-marketplace-docs</div>
+          <div class="doc-desc">Scripts, configuration, notes de version et documentation</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://wiki.lyrasis.org/display/DSDOC9x"
+         target="_blank" rel="noopener">
+        <span>📖</span>
+        <div>
+          <div>Wiki LYRASIS — Documentation officielle DSpace 9</div>
+          <div class="doc-desc">Référence technique complète — installation, configuration, administration</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://wiki.lyrasis.org/display/DSDOC9x/Command+Line+Operations"
+         target="_blank" rel="noopener">
+        <span>💻</span>
+        <div>
+          <div>Opérations en ligne de commande DSpace</div>
+          <div class="doc-desc">Référence complète des commandes CLI DSpace (import, export, index, etc.)</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
+    <p style="margin-top:0.4rem;">
+      <a href="index.html">← Retour à l'accueil</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
