@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Semantic MediaWiki 6 on Azure | Cotechnoe</title>
+  <meta name="description" content="Customer support for Semantic MediaWiki 6 on Azure Marketplace — contact Cotechnoe by email, open a GitHub issue, or reach the SMW community." />
+  <meta name="author" content="Michel Héon, Ph.D." />
+  <style>
+    :root {
+      --brand:      #2563eb;
+      --brand-dark: #1e40af;
+      --accent:     #0ea5e9;
+      --bg:         #0f172a;
+      --surface:    #1e293b;
+      --border:     #334155;
+      --text:       #e2e8f0;
+      --muted:      #94a3b8;
+      --tag-bg:     #1d3556;
+      --tag-fg:     #7dd3fc;
+      --green:      #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Top nav ── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    .topnav .container { display: flex; align-items: center; gap: 1rem; }
+    .topnav a { color: var(--muted); }
+    .topnav a:hover { color: var(--accent); text-decoration: none; }
+    .topnav .sep { color: var(--border); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0 2.5rem;
+    }
+    .hero-inner { display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .product-icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; color: #f1f5f9; }
+    .hero .version {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-top: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Support cards ── */
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .support-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.3rem;
+    }
+    .support-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .support-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .support-card a {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ── Doc links ── */
+    .doc-links { display: flex; flex-direction: column; gap: 0.65rem; }
+    .doc-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      text-decoration: none !important;
+      transition: border-color 0.15s;
+    }
+    .doc-link:hover { border-color: var(--accent); }
+    .doc-link > span { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+    .doc-link > div > div:first-child { font-weight: 600; color: var(--accent); font-size: 0.9rem; }
+    .doc-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── Stack table ── */
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .stack-table th, .stack-table td {
+      text-align: left;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-table th { color: var(--muted); font-weight: 500; background: var(--surface); }
+    .stack-table td:first-child { color: var(--muted); width: 42%; }
+    .stack-table td:last-child  { color: #f1f5f9; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      font-size: 0.83rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Top nav ── -->
+<nav class="topnav">
+  <div class="container">
+    <a href="../../index.html">← Cotechnoe</a>
+    <span class="sep">/</span>
+    <a href="../index.html">Semantic MediaWiki 6</a>
+    <span class="sep">/</span>
+    <span style="color:var(--text);">Support</span>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="product-icon">🛟</div>
+      <div>
+        <h1>Customer Support</h1>
+        <span class="version">Semantic MediaWiki 6 — Azure Marketplace</span>
+        <p>
+          Need help deploying or operating your Semantic MediaWiki instance on Azure?
+          Reach us by email, open a GitHub issue, or consult the official community resources.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Support channels ── -->
+<section>
+  <div class="container">
+    <h2>📬 Contact &amp; Support Channels</h2>
+    <div class="support-grid">
+
+      <div class="support-card">
+        <h3>✉️ Email Support</h3>
+        <p>
+          Send us a message describing your issue. We respond within 2 business days.
+          Include your Azure VM name, OS version, and the error you encountered.
+        </p>
+        <a href="mailto:support@cotechnoe.com">support@cotechnoe.com</a>
+      </div>
+
+      <div class="support-card">
+        <h3>🐛 GitHub Issues</h3>
+        <p>
+          Report a bug, ask a question, or request a feature directly in our
+          public issue tracker. All issues are publicly visible and tracked.
+        </p>
+        <a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/issues"
+           target="_blank" rel="noopener">
+          Open an issue ↗
+        </a>
+      </div>
+
+      <div class="support-card">
+        <h3>💬 SMW Community</h3>
+        <p>
+          The Semantic MediaWiki community forum and mailing list cover extension
+          usage, <code>#ask</code> queries, SPARQL, and RDF/OWL topics.
+        </p>
+        <a href="https://www.semantic-mediawiki.org/wiki/Help:Contact"
+           target="_blank" rel="noopener">
+          Community resources ↗
+        </a>
+      </div>
+
+      <div class="support-card">
+        <h3>📖 MediaWiki Support</h3>
+        <p>
+          For core wiki administration, configuration, and extension questions,
+          consult the official MediaWiki support channels.
+        </p>
+        <a href="https://www.mediawiki.org/wiki/Communication"
+           target="_blank" rel="noopener">
+          MediaWiki community ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Response times ── -->
+<section>
+  <div class="container">
+    <h2>⏱ Response Times</h2>
+    <table class="stack-table">
+      <thead>
+        <tr><th>Channel</th><th>Expected Response Time</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Email — support@cotechnoe.com</td><td>Within 2 business days</td></tr>
+        <tr><td>GitHub Issues</td><td>Within 3 business days</td></tr>
+        <tr><td>SMW Community Forum</td><td>Community-driven — varies</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Self-service resources ── -->
+<section>
+  <div class="container">
+    <h2>📚 Self-Service Resources</h2>
+    <div class="doc-links">
+      <a class="doc-link"
+         href="../index.html#documentation">
+        <span>📄</span>
+        <div>
+          <div>Deployment &amp; Administration Guides</div>
+          <div class="doc-desc">Step-by-step guides for deployment, HTTPS certificates, wiki administration, and troubleshooting</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs"
+         target="_blank" rel="noopener">
+        <span>📁</span>
+        <div>
+          <div>GitHub Repository — smw6-azure-marketplace-docs</div>
+          <div class="doc-desc">Full documentation source, EN/FR guides, release notes and known issues</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://www.semantic-mediawiki.org/wiki/Help:Contents"
+         target="_blank" rel="noopener">
+        <span>📖</span>
+        <div>
+          <div>Official Semantic MediaWiki Documentation</div>
+          <div class="doc-desc">Complete reference — annotations, #ask queries, SPARQL, RDF/OWL export</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://www.mediawiki.org/wiki/MediaWiki"
+         target="_blank" rel="noopener">
+        <span>📘</span>
+        <div>
+          <div>Official MediaWiki Documentation</div>
+          <div class="doc-desc">Administration, configuration and customization of the wiki platform</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Publisher info ── -->
+<section>
+  <div class="container">
+    <h2>🏢 Publisher Information</h2>
+    <table class="stack-table">
+      <thead>
+        <tr><th>Field</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Publisher</td><td>Cotechnoe inc.</td></tr>
+        <tr><td>Contact</td><td>Michel Héon, Ph.D. — Montréal, Québec, Canada</td></tr>
+        <tr><td>Support Email</td><td><a href="mailto:support@cotechnoe.com">support@cotechnoe.com</a></td></tr>
+        <tr><td>Website</td><td><a href="https://cotechnoe.com" target="_blank" rel="noopener">cotechnoe.com</a></td></tr>
+        <tr><td>GitHub</td><td><a href="https://github.com/Cotechnoe" target="_blank" rel="noopener">github.com/Cotechnoe</a></td></tr>
+        <tr><td>Azure Marketplace Offer</td><td><a href="https://azuremarketplace.microsoft.com/marketplace/apps/cotechnoe.smw-knowledge-base" target="_blank" rel="noopener">Semantic MediaWiki on Azure Virtual Machines</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
+    <p style="margin-top:0.4rem;">
+      <a href="../index.html">← Back to Semantic MediaWiki 6</a>
+      &nbsp;·&nbsp;
+      <a href="../../index.html">← Cotechnoe</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
