@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apache Jena Fuseki — Azure Marketplace | Cotechnoe</title>
-  <meta name="description" content="Déployez Apache Jena Fuseki sur Azure Marketplace — triplestore SPARQL 1.1 haute performance, Ubuntu Server 24.04 LTS, prêt à l'emploi." />
+  <meta name="description" content="Deploy Apache Jena Fuseki on Azure Marketplace — high-performance SPARQL 1.1 triplestore, Ubuntu Server 24.04 LTS, ready to use." />
   <meta name="author" content="Michel Héon, Ph.D." />
   <style>
     :root {
@@ -195,15 +195,15 @@
         <h1>Apache Jena Fuseki</h1>
         <span class="version">Ubuntu Server 24.04 LTS · TDB2 · SPARQL 1.1</span>
         <p>
-          Triplestore RDF haute performance prêt à déployer sur Microsoft Azure.
-          Endpoint SPARQL 1.1 opérationnel dès le premier démarrage, avec authentification
-          Shiro et automatisation Makefile incluses.
+          High-performance RDF triplestore ready to deploy on Microsoft Azure.
+          SPARQL 1.1 endpoint operational from first boot, with Shiro authentication
+          and Makefile automation included.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary"
              href="https://azuremarketplace.microsoft.com/fr/marketplace/apps/cotechnoe.apache-jena-fuseki?ocid=GTMRewards_WhatsNewBlog_apache-jena-fuseki_05022025"
              target="_blank" rel="noopener">
-            🛒 Déployer sur Azure
+            🛒 Deploy on Azure
           </a>
           <a class="btn btn-secondary"
              href="https://github.com/Cotechnoe/fuseki-azure-marketplace-docs"
@@ -220,19 +220,19 @@
 <!-- ── Stack ── -->
 <section>
   <div class="container">
-    <h2>🏗 Environnement de déploiement</h2>
+    <h2>🏗 Deployment Environment</h2>
     <table class="stack-table">
       <thead>
-        <tr><th>Composant</th><th>Valeur</th></tr>
+        <tr><th>Component</th><th>Value</th></tr>
       </thead>
       <tbody>
-        <tr><td>Système d'exploitation</td><td>Ubuntu Server 24.04 LTS</td></tr>
-        <tr><td>Moteur RDF</td><td>Apache Jena Fuseki avec backend TDB2</td></tr>
-        <tr><td>Accès Web</td><td>Interface Fuseki Web — port 3030</td></tr>
-        <tr><td>Sécurité</td><td>Authentification rôle-based via Apache Shiro</td></tr>
-        <tr><td>Provisionnement</td><td>cloud-init — configuration automatique au premier démarrage</td></tr>
-        <tr><td>VM recommandées</td><td>B1ms, D2s_v3, E4s_v3 (Azure)</td></tr>
-        <tr><td>Automatisation</td><td>Makefile inclus pour déploiement des services et sécurisation Shiro</td></tr>
+        <tr><td>Operating System</td><td>Ubuntu Server 24.04 LTS</td></tr>
+        <tr><td>RDF Engine</td><td>Apache Jena Fuseki with TDB2 backend</td></tr>
+        <tr><td>Web Access</td><td>Fuseki Web interface — port 3030</td></tr>
+        <tr><td>Security</td><td>Role-based authentication via Apache Shiro</td></tr>
+        <tr><td>Provisioning</td><td>cloud-init — automatic configuration on first boot</td></tr>
+        <tr><td>Recommended VMs</td><td>B1ms, D2s_v3, E4s_v3 (Azure)</td></tr>
+        <tr><td>Automation</td><td>Makefile included for service deployment and Shiro security</td></tr>
       </tbody>
     </table>
   </div>
@@ -241,31 +241,31 @@
 <!-- ── Features ── -->
 <section>
   <div class="container">
-    <h2>✨ Fonctionnalités clés</h2>
+    <h2>✨ Key Features</h2>
     <div class="feature-grid">
       <div class="feature">
-        <h3>🔗 SPARQL 1.1 complet</h3>
-        <p>Endpoint SPARQL 1.1 Query, Update et Graph Store Protocol opérationnel dès le démarrage.</p>
+        <h3>🔗 Full SPARQL 1.1</h3>
+        <p>SPARQL 1.1 Query, Update and Graph Store Protocol endpoint operational from first boot.</p>
       </div>
       <div class="feature">
-        <h3>🗄 Stockage TDB2 persistant</h3>
-        <p>Datasets RDF persistants sur disque via TDB2 — ou en mémoire pour les environnements de test.</p>
+        <h3>🗄 Persistent TDB2 Storage</h3>
+        <p>Persistent on-disk RDF datasets via TDB2 — or in-memory for test environments.</p>
       </div>
       <div class="feature">
-        <h3>🔐 Authentification Shiro</h3>
-        <p>Contrôle d'accès granulaire par rôle (admin, lecture, écriture) via Apache Shiro.</p>
+        <h3>🔐 Shiro Authentication</h3>
+        <p>Fine-grained role-based access control (admin, read, write) via Apache Shiro.</p>
       </div>
       <div class="feature">
-        <h3>⚙️ Makefile d'automatisation</h3>
-        <p>Déploiement de services systemd, gestion des mots de passe Shiro et redémarrage à distance en une commande.</p>
+        <h3>⚙️ Automation Makefile</h3>
+        <p>systemd service deployment, Shiro password management and remote restart in a single command.</p>
       </div>
       <div class="feature">
-        <h3>☁️ Optimisé Azure</h3>
-        <p>Image préconfigurée pour les SKU Azure courants — démarrage en moins de 5 minutes depuis le Marketplace.</p>
+        <h3>☁️ Azure Optimized</h3>
+        <p>Pre-configured image for common Azure SKUs — up and running in under 5 minutes from the Marketplace.</p>
       </div>
       <div class="feature">
-        <h3>📦 cloud-init inclus</h3>
-        <p>Provisionnement automatique dès le premier démarrage — aucune configuration manuelle requise.</p>
+        <h3>📦 cloud-init included</h3>
+        <p>Automatic provisioning from first boot — no manual configuration required.</p>
       </div>
     </div>
   </div>
@@ -274,29 +274,29 @@
 <!-- ── Quick Start ── -->
 <section>
   <div class="container">
-    <h2>🚀 Démarrage rapide</h2>
+    <h2>🚀 Quick Start</h2>
 
     <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
-      Après déploiement depuis Azure Marketplace, Fuseki est immédiatement accessible.
+      After deployment from Azure Marketplace, Fuseki is immediately accessible.
     </p>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Accéder à l'interface Web</h3>
-    <pre><code>http://&lt;votre-ip-vm&gt;:3030</code></pre>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Access the Web interface</h3>
+    <pre><code>http://&lt;your-vm-ip&gt;:3030</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Déployer le service systemd via Makefile</h3>
-    <pre><code># Déployer le service sur la VM distante
-make service-deploy HOST=&lt;ip-vm&gt; SERVICE_FILE=fuseki-d2s-v3.service
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Deploy the systemd service via Makefile</h3>
+    <pre><code># Deploy the service to the remote VM
+make service-deploy HOST=&lt;vm-ip&gt; SERVICE_FILE=fuseki-d2s-v3.service
 
-# Activer et démarrer le service
-make service-enable HOST=&lt;ip-vm&gt;
-make service-start  HOST=&lt;ip-vm&gt;</code></pre>
+# Enable and start the service
+make service-enable HOST=&lt;vm-ip&gt;
+make service-start  HOST=&lt;vm-ip&gt;</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Sécuriser avec Shiro</h3>
-    <pre><code># Générer les credentials Shiro hashés
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Secure with Shiro</h3>
+    <pre><code># Generate hashed Shiro credentials
 make shiro-generate
 
-# Déployer la configuration Shiro sur la VM
-make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
+# Deploy the Shiro configuration to the VM
+make shiro-deploy-hashed HOST=&lt;vm-ip&gt;</code></pre>
   </div>
 </section>
 
@@ -310,8 +310,8 @@ make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
          target="_blank" rel="noopener">
         <span>📁</span>
         <div>
-          <div>Dépôt GitHub — fuseki-azure-marketplace-docs</div>
-          <div class="doc-desc">Scripts de déploiement, Makefile, configuration systemd et Shiro</div>
+          <div>GitHub Repository — fuseki-azure-marketplace-docs</div>
+          <div class="doc-desc">Deployment scripts, Makefile, systemd and Shiro configuration</div>
         </div>
       </a>
       <a class="doc-link"
@@ -319,8 +319,8 @@ make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
          target="_blank" rel="noopener">
         <span>☁️</span>
         <div>
-          <div>Offre Azure Marketplace — Apache Jena Fuseki</div>
-          <div class="doc-desc">Page officielle de l'offre — déploiement en un clic sur Azure</div>
+          <div>Azure Marketplace Offer — Apache Jena Fuseki</div>
+          <div class="doc-desc">Official offer page — one-click deployment on Azure</div>
         </div>
       </a>
       <a class="doc-link"
@@ -328,8 +328,8 @@ make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
          target="_blank" rel="noopener">
         <span>📖</span>
         <div>
-          <div>Documentation officielle Apache Jena Fuseki 2</div>
-          <div class="doc-desc">Référence complète — configuration, sécurité, SPARQL endpoints</div>
+          <div>Official Apache Jena Fuseki 2 Documentation</div>
+          <div class="doc-desc">Complete reference — configuration, security, SPARQL endpoints</div>
         </div>
       </a>
     </div>
@@ -341,7 +341,7 @@ make shiro-deploy-hashed HOST=&lt;ip-vm&gt;</code></pre>
   <div class="container">
     <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
     <p style="margin-top:0.4rem;">
-      <a href="../index.html">← Retour à l'accueil</a>
+      <a href="../index.html">← Back to home</a>
     </p>
   </div>
 </footer>

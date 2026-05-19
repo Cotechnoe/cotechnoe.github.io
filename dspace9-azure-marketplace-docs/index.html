@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSpace 9 — Dépôt institutionnel — Azure Marketplace | Cotechnoe</title>
-  <meta name="description" content="Déployez DSpace 9 sur Azure Marketplace — dépôt institutionnel open source, REST API, Angular, PostgreSQL, Solr, HTTPS automatique." />
+  <title>DSpace 9 — Institutional Repository — Azure Marketplace | Cotechnoe</title>
+  <meta name="description" content="Deploy DSpace 9 on Azure Marketplace — open source institutional repository, REST API, Angular, PostgreSQL, Solr, automatic HTTPS." />
   <meta name="author" content="Michel Héon, Ph.D." />
   <style>
     :root {
@@ -245,18 +245,18 @@
     <div class="hero-inner">
       <div class="product-icon">🏛</div>
       <div>
-        <h1>DSpace 9 — Dépôt institutionnel</h1>
+        <h1>DSpace 9 — Institutional Repository</h1>
         <span class="version">Ubuntu 22.04 LTS · REST API · Angular · HTTPS / Let's Encrypt</span>
         <p>
-          Dépôt institutionnel open source de référence — déployez DSpace 9 en un clic sur Azure.
-          Stack complète préconfigurée : Tomcat (REST API), Angular (frontend),
-          Nginx, PostgreSQL, Solr et certificat HTTPS automatique.
+          Leading open source institutional repository — deploy DSpace 9 in one click on Azure.
+          Full pre-configured stack: Tomcat (REST API), Angular (frontend),
+          Nginx, PostgreSQL, Solr and automatic HTTPS certificate.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary"
              href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cotechnoe.dspace9"
              target="_blank" rel="noopener">
-            🛒 Déployer sur Azure
+            🛒 Deploy on Azure
           </a>
           <a class="btn btn-secondary"
              href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs"
@@ -273,19 +273,19 @@
 <!-- ── Stack ── -->
 <section>
   <div class="container">
-    <h2>🏗 Stack technique</h2>
+    <h2>🏗 Technical Stack</h2>
     <table class="stack-table">
       <thead>
-        <tr><th>Composant</th><th>Valeur</th></tr>
+        <tr><th>Component</th><th>Value</th></tr>
       </thead>
       <tbody>
-        <tr><td>Système d'exploitation</td><td>Ubuntu 22.04 LTS</td></tr>
+        <tr><td>Operating System</td><td>Ubuntu 22.04 LTS</td></tr>
         <tr><td>Application</td><td>DSpace 9.x</td></tr>
-        <tr><td>API REST</td><td>Tomcat (backend Java)</td></tr>
-        <tr><td>Interface utilisateur</td><td>Angular (frontend)</td></tr>
-        <tr><td>Reverse proxy / HTTPS</td><td>Nginx + Let's Encrypt (automatique)</td></tr>
-        <tr><td>Base de données</td><td>PostgreSQL</td></tr>
-        <tr><td>Moteur de recherche</td><td>Apache Solr</td></tr>
+        <tr><td>REST API</td><td>Tomcat (Java backend)</td></tr>
+        <tr><td>User Interface</td><td>Angular (frontend)</td></tr>
+        <tr><td>Reverse proxy / HTTPS</td><td>Nginx + Let's Encrypt (automatic)</td></tr>
+        <tr><td>Database</td><td>PostgreSQL</td></tr>
+        <tr><td>Search Engine</td><td>Apache Solr</td></tr>
       </tbody>
     </table>
   </div>
@@ -294,31 +294,31 @@
 <!-- ── Features ── -->
 <section>
   <div class="container">
-    <h2>✨ Fonctionnalités clés</h2>
+    <h2>✨ Key Features</h2>
     <div class="feature-grid">
       <div class="feature">
-        <h3>📦 REST API moderne</h3>
-        <p>API REST complète HAL+JSON pour l'intégration avec des systèmes tiers et des clients Angular.</p>
+        <h3>📦 Modern REST API</h3>
+        <p>Complete HAL+JSON REST API for integration with third-party systems and Angular clients.</p>
       </div>
       <div class="feature">
-        <h3>🖥 Interface Angular</h3>
-        <p>Frontend Angular entièrement responsive — navigation, dépôt et consultation de collections.</p>
+        <h3>🖥 Angular Interface</h3>
+        <p>Fully responsive Angular frontend — browsing, submission and viewing of collections.</p>
       </div>
       <div class="feature">
-        <h3>🔍 Recherche Solr</h3>
-        <p>Recherche full-text et par facettes — indexation des métadonnées et du contenu des objets numériques.</p>
+        <h3>🔍 Solr Search</h3>
+        <p>Full-text and faceted search — metadata and digital object content indexing.</p>
       </div>
       <div class="feature">
-        <h3>🔒 HTTPS automatique</h3>
-        <p>Certificate Let's Encrypt provisionné automatiquement — surveillance DNS par <code>dspace-dns-watch.timer</code>.</p>
+        <h3>🔒 Automatic HTTPS</h3>
+        <p>Let's Encrypt certificate provisioned automatically — DNS monitoring via <code>dspace-dns-watch.timer</code>.</p>
       </div>
       <div class="feature">
-        <h3>🗄 PostgreSQL intégré</h3>
-        <p>Base de données relationnelle préconfigurée pour DSpace — schéma, utilisateurs et droits initialisés.</p>
+        <h3>🗄 Integrated PostgreSQL</h3>
+        <p>Relational database pre-configured for DSpace — schema, users and permissions initialized.</p>
       </div>
       <div class="feature">
-        <h3>☁️ Prêt pour Azure</h3>
-        <p>Déploiement via cloud-init — VM opérationnelle en quelques minutes depuis Azure Marketplace.</p>
+        <h3>☁️ Azure Ready</h3>
+        <p>Deployed via cloud-init — VM operational in minutes from Azure Marketplace.</p>
       </div>
     </div>
   </div>
@@ -327,17 +327,17 @@
 <!-- ── Services ── -->
 <section>
   <div class="container">
-    <h2>⚙️ Services systemd</h2>
+    <h2>⚙️ systemd Services</h2>
     <table class="services-table">
       <thead>
-        <tr><th>Service</th><th>Rôle</th></tr>
+        <tr><th>Service</th><th>Role</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>tomcat</code></td><td>API REST DSpace (backend Java)</td></tr>
-        <tr><td><code>dspace-frontend</code></td><td>Interface Angular (frontend)</td></tr>
-        <tr><td><code>nginx</code></td><td>Reverse proxy — routage HTTP/HTTPS, terminaison TLS</td></tr>
-        <tr><td><code>postgresql</code></td><td>Base de données relationnelle</td></tr>
-        <tr><td><code>solr</code></td><td>Moteur de recherche et d'indexation</td></tr>
+        <tr><td><code>tomcat</code></td><td>DSpace REST API (Java backend)</td></tr>
+        <tr><td><code>dspace-frontend</code></td><td>Angular interface (frontend)</td></tr>
+        <tr><td><code>nginx</code></td><td>Reverse proxy — HTTP/HTTPS routing, TLS termination</td></tr>
+        <tr><td><code>postgresql</code></td><td>Relational database</td></tr>
+        <tr><td><code>solr</code></td><td>Search and indexing engine</td></tr>
       </tbody>
     </table>
   </div>
@@ -346,14 +346,14 @@
 <!-- ── Quick start ── -->
 <section>
   <div class="container">
-    <h2>🚀 Mise en route</h2>
+    <h2>🚀 Getting Started</h2>
     <div class="steps">
 
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>Connexion SSH à la VM</h3>
-          <p>Après déploiement depuis le Marketplace, connectez-vous en SSH avec le nom d'utilisateur choisi.</p>
+          <h3>SSH connection to the VM</h3>
+          <p>After deployment from the Marketplace, connect via SSH with the chosen admin username.</p>
           <code>ssh &lt;admin-username&gt;@&lt;your-vm-ip&gt;</code>
         </div>
       </div>
@@ -361,8 +361,8 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h3>Créer le compte administrateur DSpace</h3>
-          <p>Créez le premier compte administrateur via la ligne de commande DSpace.</p>
+          <h3>Create the DSpace administrator account</h3>
+          <p>Create the first administrator account via the DSpace command line.</p>
           <code>sudo /opt/dspace/bin/dspace create-administrator</code>
         </div>
       </div>
@@ -370,8 +370,8 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <h3>Vérifier les services</h3>
-          <p>Confirmez que tous les services sont bien démarrés.</p>
+          <h3>Check services</h3>
+          <p>Confirm all services are up and running.</p>
           <code>sudo systemctl status tomcat
 sudo systemctl status dspace-frontend
 sudo systemctl status nginx
@@ -383,15 +383,15 @@ sudo systemctl status solr</code>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-body">
-          <h3>Accéder aux interfaces</h3>
-          <p>DSpace expose plusieurs points d'accès sur votre VM :</p>
+          <h3>Access the interfaces</h3>
+          <p>DSpace exposes several access points on your VM:</p>
           <table class="url-table" style="margin-top:0.5rem;">
             <thead><tr><th>Interface</th><th>URL</th></tr></thead>
             <tbody>
-              <tr><td>Frontend Angular</td><td><code>https://&lt;ip&gt;/</code></td></tr>
-              <tr><td>Connexion admin</td><td><code>https://&lt;ip&gt;/login</code></td></tr>
+              <tr><td>Angular Frontend</td><td><code>https://&lt;ip&gt;/</code></td></tr>
+              <tr><td>Admin login</td><td><code>https://&lt;ip&gt;/login</code></td></tr>
               <tr><td>REST API</td><td><code>https://&lt;ip&gt;/server</code></td></tr>
-              <tr><td>Solr (local uniquement)</td><td><code>http://localhost:8983/solr</code></td></tr>
+              <tr><td>Solr (local only)</td><td><code>http://localhost:8983/solr</code></td></tr>
             </tbody>
           </table>
         </div>
@@ -400,12 +400,12 @@ sudo systemctl status solr</code>
       <div class="step">
         <div class="step-num">5</div>
         <div class="step-body">
-          <h3>Certificat SSL / Let's Encrypt</h3>
+          <h3>SSL / Let's Encrypt Certificate</h3>
           <p>
-            Un certificat auto-signé est actif par défaut.
-            Dès qu'un nom de domaine (FQDN) résout vers votre IP,
-            <code>dspace-dns-watch.timer</code> détecte la résolution et
-            provisionne automatiquement un certificat Let's Encrypt.
+            A self-signed certificate is active by default.
+            Once a domain name (FQDN) resolves to your IP,
+            <code>dspace-dns-watch.timer</code> detects the resolution and
+            automatically provisions a Let's Encrypt certificate.
           </p>
           <code>sudo cat /root/.dspace-credentials</code>
         </div>
@@ -418,15 +418,15 @@ sudo systemctl status solr</code>
 <!-- ── Ressources ── -->
 <section>
   <div class="container">
-    <h2>🔗 Ressources</h2>
+    <h2>🔗 Resources</h2>
     <div class="doc-links">
       <a class="doc-link"
          href="https://github.com/Cotechnoe/dspace9-azure-marketplace-docs"
          target="_blank" rel="noopener">
         <span>📁</span>
         <div>
-          <div>Dépôt GitHub — dspace9-azure-marketplace-docs</div>
-          <div class="doc-desc">Scripts, configuration, notes de version et documentation</div>
+          <div>GitHub Repository — dspace9-azure-marketplace-docs</div>
+          <div class="doc-desc">Scripts, configuration, release notes and documentation</div>
         </div>
       </a>
       <a class="doc-link"
@@ -434,8 +434,8 @@ sudo systemctl status solr</code>
          target="_blank" rel="noopener">
         <span>📖</span>
         <div>
-          <div>Wiki LYRASIS — Documentation officielle DSpace 9</div>
-          <div class="doc-desc">Référence technique complète — installation, configuration, administration</div>
+          <div>LYRASIS Wiki — Official DSpace 9 Documentation</div>
+          <div class="doc-desc">Complete technical reference — installation, configuration, administration</div>
         </div>
       </a>
       <a class="doc-link"
@@ -443,8 +443,8 @@ sudo systemctl status solr</code>
          target="_blank" rel="noopener">
         <span>💻</span>
         <div>
-          <div>Opérations en ligne de commande DSpace</div>
-          <div class="doc-desc">Référence complète des commandes CLI DSpace (import, export, index, etc.)</div>
+          <div>DSpace Command Line Operations</div>
+          <div class="doc-desc">Complete reference for DSpace CLI commands (import, export, index, etc.)</div>
         </div>
       </a>
     </div>
@@ -456,7 +456,7 @@ sudo systemctl status solr</code>
   <div class="container">
     <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
     <p style="margin-top:0.4rem;">
-      <a href="../index.html">← Retour à l'accueil</a>
+      <a href="../index.html">← Back to home</a>
     </p>
   </div>
 </footer>

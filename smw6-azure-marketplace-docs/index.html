@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semantic MediaWiki 6 — Azure Marketplace | Cotechnoe</title>
-  <meta name="description" content="Déployez Semantic MediaWiki 6 sur Azure Marketplace — wiki sémantique structuré, Ubuntu 22.04 LTS, prêt à l'emploi avec annotations RDF, requêtes #ask et export SPARQL." />
+  <meta name="description" content="Deploy Semantic MediaWiki 6 on Azure Marketplace — structured semantic wiki, Ubuntu 22.04 LTS, ready to use with RDF annotations, #ask queries and SPARQL export." />
   <meta name="author" content="Michel Héon, Ph.D." />
   <style>
     :root {
@@ -210,15 +210,15 @@
         <h1>Semantic MediaWiki 6</h1>
         <span class="version">Ubuntu 22.04 LTS · MediaWiki 1.43.0 · SMW 6.0.1 · PHP 8.2</span>
         <p>
-          Wiki sémantique structuré prêt à déployer sur Microsoft Azure.
-          Annotations RDF, requêtes <code>#ask</code>, endpoint SPARQL et export OWL
-          opérationnels dès le premier démarrage — aucune configuration manuelle requise.
+          Structured semantic wiki ready to deploy on Microsoft Azure.
+          RDF annotations, <code>#ask</code> queries, SPARQL endpoint and OWL export
+          operational from first boot — no manual configuration required.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary"
              href="https://azuremarketplace.microsoft.com/marketplace/apps/cotechnoe.smw-knowledge-base"
              target="_blank" rel="noopener">
-            🛒 Déployer sur Azure
+            🛒 Deploy on Azure
           </a>
           <a class="btn btn-secondary"
              href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs"
@@ -235,22 +235,22 @@
 <!-- ── Stack ── -->
 <section>
   <div class="container">
-    <h2>🏗 Environnement de déploiement</h2>
+    <h2>🏗 Deployment Environment</h2>
     <table class="stack-table">
       <thead>
-        <tr><th>Composant</th><th>Valeur</th></tr>
+        <tr><th>Component</th><th>Value</th></tr>
       </thead>
       <tbody>
-        <tr><td>Système d'exploitation</td><td>Ubuntu Server 22.04 LTS</td></tr>
-        <tr><td>Plateforme wiki</td><td>MediaWiki 1.43.0</td></tr>
-        <tr><td>Extension sémantique</td><td>Semantic MediaWiki 6.0.1</td></tr>
-        <tr><td>Extensions incluses</td><td>SemanticResultFormats, Maps</td></tr>
-        <tr><td>Serveur web</td><td>Apache 2.4 avec redirection HTTP → HTTPS</td></tr>
-        <tr><td>Langage</td><td>PHP 8.2 (official PPA)</td></tr>
-        <tr><td>Base de données</td><td>MySQL 8.0</td></tr>
-        <tr><td>Sécurité</td><td>Certificat HTTPS auto-provisionné · authentification SSH par clé</td></tr>
-        <tr><td>Provisionnement</td><td>First-boot automatique — aucune configuration manuelle requise</td></tr>
-        <tr><td>VM recommandées</td><td>B2s, D2s_v3, D4s_v3 (Azure)</td></tr>
+        <tr><td>Operating System</td><td>Ubuntu Server 22.04 LTS</td></tr>
+        <tr><td>Wiki Platform</td><td>MediaWiki 1.43.0</td></tr>
+        <tr><td>Semantic Extension</td><td>Semantic MediaWiki 6.0.1</td></tr>
+        <tr><td>Included Extensions</td><td>SemanticResultFormats, Maps</td></tr>
+        <tr><td>Web Server</td><td>Apache 2.4 with HTTP → HTTPS redirect</td></tr>
+        <tr><td>Language</td><td>PHP 8.2 (official PPA)</td></tr>
+        <tr><td>Database</td><td>MySQL 8.0</td></tr>
+        <tr><td>Security</td><td>Auto-provisioned HTTPS certificate · SSH key authentication</td></tr>
+        <tr><td>Provisioning</td><td>Automatic first-boot — no manual configuration required</td></tr>
+        <tr><td>Recommended VMs</td><td>B2s, D2s_v3, D4s_v3 (Azure)</td></tr>
       </tbody>
     </table>
   </div>
@@ -259,31 +259,31 @@
 <!-- ── Features ── -->
 <section>
   <div class="container">
-    <h2>✨ Fonctionnalités clés</h2>
+    <h2>✨ Key Features</h2>
     <div class="feature-grid">
       <div class="feature">
-        <h3>🔗 Annotations sémantiques</h3>
-        <p>Enrichissez vos pages wiki avec des propriétés typées — texte, nombre, date, URL, coordonnées géographiques.</p>
+        <h3>🔗 Semantic Annotations</h3>
+        <p>Enrich your wiki pages with typed properties — text, number, date, URL, geographic coordinates.</p>
       </div>
       <div class="feature">
-        <h3>🔍 Requêtes <code>#ask</code></h3>
-        <p>Interrogez vos données directement dans le wiki avec la syntaxe <code>#ask</code> — tableaux, listes, calendriers, graphiques.</p>
+        <h3>🔍 <code>#ask</code> Queries</h3>
+        <p>Query your data directly in the wiki with <code>#ask</code> syntax — tables, lists, calendars, charts.</p>
       </div>
       <div class="feature">
-        <h3>🌐 Endpoint SPARQL</h3>
-        <p>Exposez vos données comme un graphe RDF interrogeable via SPARQL 1.1 depuis vos applications externes.</p>
+        <h3>🌐 SPARQL Endpoint</h3>
+        <p>Expose your data as a queryable RDF graph via SPARQL 1.1 from your external applications.</p>
       </div>
       <div class="feature">
-        <h3>📦 Export RDF / OWL</h3>
-        <p>Exportez vos connaissances en RDF, OWL ou JSON-LD pour l'interopérabilité avec vos autres systèmes.</p>
+        <h3>📦 RDF / OWL Export</h3>
+        <p>Export your knowledge in RDF, OWL or JSON-LD for interoperability with your other systems.</p>
       </div>
       <div class="feature">
         <h3>📊 SemanticResultFormats</h3>
-        <p>Visualisez vos requêtes sous forme de graphiques, calendriers, timelines, cartes et bien plus encore.</p>
+        <p>Visualize your queries as charts, calendars, timelines, maps and much more.</p>
       </div>
       <div class="feature">
-        <h3>☁️ Optimisé Azure</h3>
-        <p>Image préconfigurée pour les SKU Azure courants — wiki opérationnel en moins de 5 minutes depuis le Marketplace.</p>
+        <h3>☁️ Azure Optimized</h3>
+        <p>Pre-configured image for common Azure SKUs — wiki operational in under 5 minutes from the Marketplace.</p>
       </div>
     </div>
   </div>
@@ -292,39 +292,39 @@
 <!-- ── Quick Start ── -->
 <section>
   <div class="container">
-    <h2>🚀 Démarrage rapide</h2>
+    <h2>🚀 Quick Start</h2>
 
     <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
-      Après déploiement depuis Azure Marketplace, le wiki est immédiatement accessible.
+      After deployment from Azure Marketplace, the wiki is immediately accessible.
     </p>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Accéder au wiki</h3>
-    <pre><code>https://&lt;votre-ip-vm&gt;/wiki/</code></pre>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Access the wiki</h3>
+    <pre><code>https://&lt;your-vm-ip&gt;/wiki/</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Se connecter en administrateur</h3>
-    <pre><code># L'identifiant admin est défini lors du déploiement Azure
-# Accéder à : https://&lt;votre-ip-vm&gt;/wiki/Special:UserLogin</code></pre>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Log in as administrator</h3>
+    <pre><code># The admin username is defined during Azure deployment
+# Go to: https://&lt;your-vm-ip&gt;/wiki/Special:UserLogin</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Créer votre première propriété sémantique</h3>
-    <pre><code>[[Categorie:Personne]]
-[[Nom::Michel Héon]]
-[[Rôle::Ingénieur sémantique]]
-[[Organisation::Cotechnoe]]</code></pre>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Create your first semantic property</h3>
+    <pre><code>[[Category:Person]]
+[[Name::Michel Héon]]
+[[Role::Semantic Engineer]]
+[[Organization::Cotechnoe]]</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">4. Interroger vos données avec #ask</h3>
-    <pre><code>{{#ask: [[Categorie:Personne]]
-  | ?Nom
-  | ?Rôle
-  | ?Organisation
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">4. Query your data with #ask</h3>
+    <pre><code>{{#ask: [[Category:Person]]
+  | ?Name
+  | ?Role
+  | ?Organization
   | format=table
 }}</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">5. Remplacer le certificat auto-signé (optionnel)</h3>
-    <pre><code># Se connecter en SSH à la VM
-ssh adminuser@&lt;votre-ip-vm&gt;
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">5. Replace the self-signed certificate (optional)</h3>
+    <pre><code># Connect via SSH to the VM
+ssh adminuser@&lt;your-vm-ip&gt;
 
-# Installer un certificat Let's Encrypt avec Certbot
-sudo certbot --apache -d votre-domaine.com</code></pre>
+# Install a Let's Encrypt certificate with Certbot
+sudo certbot --apache -d your-domain.com</code></pre>
   </div>
 </section>
 
@@ -335,36 +335,36 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
 
     <table class="doc-table" style="margin-bottom:1.5rem;">
       <thead>
-        <tr><th>Sujet</th><th>English</th><th>Français</th></tr>
+        <tr><th>Topic</th><th>English</th><th>French</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td>Déploiement depuis le Marketplace</td>
+          <td>Deploying from the Marketplace</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Deploying-from-Marketplace.md" target="_blank" rel="noopener">Deploying-from-Marketplace.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Deploying-from-Marketplace-fr.md" target="_blank" rel="noopener">Deploying-from-Marketplace-fr.md</a></td>
         </tr>
         <tr>
-          <td>Vérification post-déploiement</td>
+          <td>Post-deployment Verification</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Post-Deployment-Verification.md" target="_blank" rel="noopener">Post-Deployment-Verification.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Post-Deployment-Verification-fr.md" target="_blank" rel="noopener">Post-Deployment-Verification-fr.md</a></td>
         </tr>
         <tr>
-          <td>Certificat HTTPS / TLS</td>
+          <td>HTTPS / TLS Certificate</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/HTTPS-TLS-Certificate.md" target="_blank" rel="noopener">HTTPS-TLS-Certificate.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/HTTPS-TLS-Certificate-fr.md" target="_blank" rel="noopener">HTTPS-TLS-Certificate-fr.md</a></td>
         </tr>
         <tr>
-          <td>Administration du wiki</td>
+          <td>Wiki Administration</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Administering-the-Wiki.md" target="_blank" rel="noopener">Administering-the-Wiki.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Administering-the-Wiki-fr.md" target="_blank" rel="noopener">Administering-the-Wiki-fr.md</a></td>
         </tr>
         <tr>
-          <td>Bases de Semantic MediaWiki</td>
+          <td>Semantic MediaWiki Basics</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Semantic-MediaWiki-Basics.md" target="_blank" rel="noopener">Semantic-MediaWiki-Basics.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Semantic-MediaWiki-Basics-fr.md" target="_blank" rel="noopener">Semantic-MediaWiki-Basics-fr.md</a></td>
         </tr>
         <tr>
-          <td>Dépannage</td>
+          <td>Troubleshooting</td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Troubleshooting.md" target="_blank" rel="noopener">Troubleshooting.md</a></td>
           <td><a href="https://github.com/Cotechnoe/smw6-azure-marketplace-docs/blob/main/docs/Troubleshooting-fr.md" target="_blank" rel="noopener">Troubleshooting-fr.md</a></td>
         </tr>
@@ -377,8 +377,8 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
          target="_blank" rel="noopener">
         <span>📁</span>
         <div>
-          <div>Dépôt GitHub — smw6-azure-marketplace-docs</div>
-          <div class="doc-desc">Documentation complète, guides EN/FR, notes de version et fichiers de support</div>
+          <div>GitHub Repository — smw6-azure-marketplace-docs</div>
+          <div class="doc-desc">Full documentation, EN/FR guides, release notes and support files</div>
         </div>
       </a>
       <a class="doc-link"
@@ -386,8 +386,8 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
          target="_blank" rel="noopener">
         <span>☁️</span>
         <div>
-          <div>Offre Azure Marketplace — Semantic MediaWiki 6</div>
-          <div class="doc-desc">Page officielle de l'offre — déploiement en un clic sur Azure</div>
+          <div>Azure Marketplace Offer — Semantic MediaWiki 6</div>
+          <div class="doc-desc">Official offer page — one-click deployment on Azure</div>
         </div>
       </a>
       <a class="doc-link"
@@ -395,8 +395,8 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
          target="_blank" rel="noopener">
         <span>📖</span>
         <div>
-          <div>Documentation officielle Semantic MediaWiki</div>
-          <div class="doc-desc">Référence complète — annotations, requêtes #ask, SPARQL, RDF/OWL</div>
+          <div>Official Semantic MediaWiki Documentation</div>
+          <div class="doc-desc">Complete reference — annotations, #ask queries, SPARQL, RDF/OWL</div>
         </div>
       </a>
       <a class="doc-link"
@@ -404,8 +404,8 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
          target="_blank" rel="noopener">
         <span>📘</span>
         <div>
-          <div>Documentation officielle MediaWiki</div>
-          <div class="doc-desc">Administration, configuration et personnalisation de la plateforme wiki</div>
+          <div>Official MediaWiki Documentation</div>
+          <div class="doc-desc">Administration, configuration and customization of the wiki platform</div>
         </div>
       </a>
     </div>
@@ -417,7 +417,7 @@ sudo certbot --apache -d votre-domaine.com</code></pre>
   <div class="container">
     <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
     <p style="margin-top:0.4rem;">
-      <a href="../index.html">← Retour à l'accueil</a>
+      <a href="../index.html">← Back to home</a>
     </p>
   </div>
 </footer>
