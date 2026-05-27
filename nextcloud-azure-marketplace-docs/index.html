@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotechnoe Cloud Hub (Nextcloud) — Azure Marketplace | Cotechnoe</title>
+  <meta name="description" content="Deploy Cotechnoe Cloud Hub on Azure Marketplace — self-hosted Nextcloud Hub on Ubuntu 24.04 LTS with Nginx, PHP-FPM 8.3, PostgreSQL 16 and Let's Encrypt. Ready in 5 minutes." />
+  <meta name="author" content="Michel Héon, Ph.D." />
+  <style>
+    :root {
+      --brand:      #2563eb;
+      --brand-dark: #1e40af;
+      --accent:     #0ea5e9;
+      --bg:         #0f172a;
+      --surface:    #1e293b;
+      --border:     #334155;
+      --text:       #e2e8f0;
+      --muted:      #94a3b8;
+      --tag-bg:     #1d3556;
+      --tag-fg:     #7dd3fc;
+      --green:      #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Top nav ── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    .topnav .container { display: flex; align-items: center; gap: 1rem; }
+    .topnav a { color: var(--muted); }
+    .topnav a:hover { color: var(--accent); text-decoration: none; }
+    .topnav .sep { color: var(--border); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 0 2.5rem;
+    }
+    .hero-inner { display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .product-icon { font-size: 3.5rem; line-height: 1; flex-shrink: 0; }
+    .hero h1 { font-size: 1.9rem; font-weight: 700; color: #f1f5f9; }
+    .hero .version {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-top: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 7px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--accent); border: 1px solid var(--border); }
+
+    /* ── Sections ── */
+    section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .feature h3 { font-size: 0.9rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.3rem; }
+    .feature p  { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── Stack table ── */
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+    }
+    .stack-table th, .stack-table td {
+      text-align: left;
+      padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-table th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stack-table td { color: var(--text); }
+    .stack-table tr:last-child td { border-bottom: none; }
+
+    /* ── Code block ── */
+    pre {
+      background: #0a111f;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      color: #a5f3fc;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+    code { font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+    /* ── Sizing table ── */
+    .sizing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      margin-top: 0.5rem;
+    }
+    .sizing-table th, .sizing-table td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sizing-table th { color: var(--muted); font-weight: 500; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .sizing-table td { color: var(--text); }
+    .sizing-table tr:last-child td { border-bottom: none; }
+
+    /* ── Doc link list ── */
+    .doc-links { display: flex; flex-direction: column; gap: 0.55rem; }
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.87rem;
+      color: var(--accent);
+      transition: border-color 0.15s;
+    }
+    .doc-link:hover { border-color: var(--accent); text-decoration: none; }
+    .doc-link .doc-desc { color: var(--muted); font-size: 0.8rem; margin-top: 0.1rem; }
+
+    /* ── Doc table ── */
+    .doc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .doc-table th, .doc-table td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+    .doc-table th { color: var(--muted); font-weight: 500; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .doc-table td { color: var(--text); }
+    .doc-table tr:last-child td { border-bottom: none; }
+    .doc-table a { color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ── Top nav ── -->
+<nav class="topnav">
+  <div class="container">
+    <a href="../index.html">← Cotechnoe</a>
+    <span class="sep">/</span>
+    <span style="color:var(--text);">Cotechnoe Cloud Hub</span>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="product-icon">🗂️</div>
+      <div>
+        <h1>Cotechnoe Cloud Hub</h1>
+        <span class="version">Nextcloud Hub · Ubuntu 24.04 LTS · PHP-FPM 8.3 · PostgreSQL 16</span>
+        <p>
+          Self-hosted, secure file collaboration platform ready to deploy on Microsoft Azure.
+          Full Nextcloud Hub instance pre-configured with Nginx, Let's Encrypt TLS, PostgreSQL 16
+          and Redis — operational from first boot, designed for universities and research centres.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://azuremarketplace.microsoft.com/en-US/marketplace/apps/cotechnoe.nextcloud-hub"
+             target="_blank" rel="noopener">
+            🛒 Deploy on Azure
+          </a>
+          <a class="btn btn-secondary"
+             href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc"
+             target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+          <a class="btn btn-secondary"
+             href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki"
+             target="_blank" rel="noopener">
+            📖 Wiki
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Stack ── -->
+<section>
+  <div class="container">
+    <h2>🏗 Deployment Environment</h2>
+    <table class="stack-table">
+      <thead>
+        <tr><th>Component</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Operating System</td><td>Ubuntu Server 24.04 LTS</td></tr>
+        <tr><td>Application</td><td>Nextcloud Hub 33</td></tr>
+        <tr><td>Web Server</td><td>Nginx — reverse proxy + TLS termination</td></tr>
+        <tr><td>PHP Runtime</td><td>PHP-FPM 8.3</td></tr>
+        <tr><td>Database</td><td>PostgreSQL 16 (127.0.0.1:5432)</td></tr>
+        <tr><td>Cache &amp; Locking</td><td>Redis (127.0.0.1:6379) — session cache &amp; file locking</td></tr>
+        <tr><td>TLS Certificates</td><td>Let's Encrypt via Certbot — auto-renewing</td></tr>
+        <tr><td>Provisioning</td><td>cloud-init — automatic configuration on first boot</td></tr>
+        <tr><td>Recommended VMs</td><td>B2s, D2s_v3, D4s_v3, D8s_v3 (Azure)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section>
+  <div class="container">
+    <h2>✨ Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>🗂️ Full File Collaboration</h3>
+        <p>Upload, share, version and co-edit documents — with desktop sync clients and mobile apps included.</p>
+      </div>
+      <div class="feature">
+        <h3>🔐 Security by Default</h3>
+        <p>PostgreSQL and Redis bound to localhost only. SSH access restricted by NSG rule. HTTPS enforced from first boot.</p>
+      </div>
+      <div class="feature">
+        <h3>🔑 Entra ID / SSO</h3>
+        <p>Native integration with Microsoft Entra ID (formerly Azure AD) via SAML or OIDC for single sign-on.</p>
+      </div>
+      <div class="feature">
+        <h3>📊 Monitoring Ready</h3>
+        <p>Pre-configured for Azure Monitor — metrics, alerts and dashboards out of the box.</p>
+      </div>
+      <div class="feature">
+        <h3>💾 Managed Data Disk</h3>
+        <p>User files stored on a separate Azure managed data disk (<code>/var/nextcloud-data</code>) — independent of the OS disk for easy backup and resizing.</p>
+      </div>
+      <div class="feature">
+        <h3>☁️ Azure Optimized</h3>
+        <p>Ready in under 5 minutes from the Marketplace. Pre-configured for common Azure SKUs — B2s through D8s_v3.</p>
+      </div>
+      <div class="feature">
+        <h3>🔄 Easy Updates</h3>
+        <p>Nextcloud upgrade path fully documented — step-by-step wiki guide for safe, in-place upgrades.</p>
+      </div>
+      <div class="feature">
+        <h3>🛡 Privacy &amp; Compliance</h3>
+        <p>Your data stays on your Azure subscription. Suitable for sensitive research data and institutional compliance requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick Start ── -->
+<section>
+  <div class="container">
+    <h2>🚀 Quick Start</h2>
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
+      After deployment from Azure Marketplace, your Nextcloud instance is immediately accessible.
+    </p>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Deploy from Azure Marketplace</h3>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.3rem;">Fill in the required parameters during deployment:</p>
+    <pre><code>adminUsername       # VM SSH administrator username
+adminPublicKey      # SSH public key (OpenSSH — ed25519 or RSA 4096)
+vmSize              # e.g. Standard_D4s_v3
+dataDiskSizeGB      # Managed data disk size in GB (e.g. 128)
+sshSourceIP         # CIDR allowed for SSH (e.g. 203.0.113.0/32)
+nextcloudAdminUser  # Nextcloud admin username
+nextcloudAdminPass  # Nextcloud admin password (min. 12 chars)
+nextcloudDomain     # Domain name for TLS certificate</code></pre>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1.25rem 0 0.4rem;">2. Connect via SSH and verify services</h3>
+    <pre><code># Connect to the VM
+ssh -i ~/.ssh/id_ed25519 azureuser@&lt;vm-public-ip&gt;
+
+# Check all services are running
+systemctl status nginx php8.3-fpm postgresql redis-server</code></pre>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1.25rem 0 0.4rem;">3. Open Nextcloud in your browser</h3>
+    <pre><code>https://&lt;your-domain&gt;.cloudapp.azure.com</code></pre>
+
+    <p style="font-size:0.85rem; color:var(--muted); margin-top:1rem;">
+      Full step-by-step instructions in the
+      <a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki" target="_blank" rel="noopener">documentation wiki</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ── VM Sizing ── -->
+<section>
+  <div class="container">
+    <h2>📐 VM Sizing Guide</h2>
+    <table class="sizing-table">
+      <thead>
+        <tr><th>VM SKU</th><th>vCPU</th><th>RAM</th><th>Est. Monthly Cost</th><th>Recommended for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Standard_B2s</td><td>2</td><td>4 GB</td><td>~$35 USD</td><td>1–10 users, dev/test, pilots</td></tr>
+        <tr><td>Standard_B4ms</td><td>4</td><td>16 GB</td><td>~$130 USD</td><td>10–50 users, small teams</td></tr>
+        <tr><td>Standard_D2s_v3</td><td>2</td><td>8 GB</td><td>~$70 USD</td><td>10–30 users, consistent load</td></tr>
+        <tr><td>Standard_D4s_v3</td><td>4</td><td>16 GB</td><td>~$140 USD</td><td>30–100 users, departments</td></tr>
+        <tr><td>Standard_D8s_v3</td><td>8</td><td>32 GB</td><td>~$280 USD</td><td>100–300 users, research groups</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:0.75rem;">
+      Costs are estimates based on pay-as-you-go pricing in East US. See
+      <a href="https://azure.microsoft.com/en-us/pricing/calculator/" target="_blank" rel="noopener">Azure Pricing Calculator</a> for your region.
+      Full guide: <a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/vm-sizing-guide.md" target="_blank" rel="noopener">vm-sizing-guide.md</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ── Documentation ── -->
+<section>
+  <div class="container">
+    <h2>📚 Documentation</h2>
+
+    <table class="doc-table" style="margin-bottom:1.5rem;">
+      <thead>
+        <tr><th>Topic</th><th>EN</th><th>FR</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Overview &amp; Navigation</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Home" target="_blank" rel="noopener">Home</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Home" target="_blank" rel="noopener">Accueil</a></td>
+        </tr>
+        <tr>
+          <td>Deploying from Marketplace</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Deploying-from-Marketplace" target="_blank" rel="noopener">Deploying-from-Marketplace</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Deploying-from-Marketplace" target="_blank" rel="noopener">Déploiement</a></td>
+        </tr>
+        <tr>
+          <td>SSH Connection</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/SSH-Connection" target="_blank" rel="noopener">SSH-Connection</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-SSH-Connection" target="_blank" rel="noopener">Connexion SSH</a></td>
+        </tr>
+        <tr>
+          <td>Post-Deployment Verification</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Post-Deployment-Verification" target="_blank" rel="noopener">Post-Deployment-Verification</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Post-Deployment-Verification" target="_blank" rel="noopener">Vérification</a></td>
+        </tr>
+        <tr>
+          <td>HTTPS / TLS Certificate</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/HTTPS-TLS-Certificate" target="_blank" rel="noopener">HTTPS-TLS-Certificate</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-HTTPS-TLS-Certificate" target="_blank" rel="noopener">Certificat HTTPS</a></td>
+        </tr>
+        <tr>
+          <td>Configuring Nextcloud</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Configuring-Nextcloud" target="_blank" rel="noopener">Configuring-Nextcloud</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Configuring-Nextcloud" target="_blank" rel="noopener">Configuration</a></td>
+        </tr>
+        <tr>
+          <td>Managing Users</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Managing-Users" target="_blank" rel="noopener">Managing-Users</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Managing-Users" target="_blank" rel="noopener">Utilisateurs</a></td>
+        </tr>
+        <tr>
+          <td>Managing Apps</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Managing-Apps" target="_blank" rel="noopener">Managing-Apps</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Managing-Apps" target="_blank" rel="noopener">Applications</a></td>
+        </tr>
+        <tr>
+          <td>Updating Nextcloud</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Updating-Nextcloud" target="_blank" rel="noopener">Updating-Nextcloud</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Updating-Nextcloud" target="_blank" rel="noopener">Mise à jour</a></td>
+        </tr>
+        <tr>
+          <td>Backup &amp; Restore</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/backup-restore.md" target="_blank" rel="noopener">backup-restore.md</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/backup-restore-fr.md" target="_blank" rel="noopener">sauvegarde-restauration</a></td>
+        </tr>
+        <tr>
+          <td>Entra ID SSO</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/entra-id-sso.md" target="_blank" rel="noopener">entra-id-sso.md</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/entra-id-sso-fr.md" target="_blank" rel="noopener">SSO Entra ID</a></td>
+        </tr>
+        <tr>
+          <td>Monitoring</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/monitoring.md" target="_blank" rel="noopener">monitoring.md</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/monitoring-fr.md" target="_blank" rel="noopener">Supervision</a></td>
+        </tr>
+        <tr>
+          <td>Network Security</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/network-security.md" target="_blank" rel="noopener">network-security.md</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/blob/main/docs/network-security-fr.md" target="_blank" rel="noopener">Sécurité réseau</a></td>
+        </tr>
+        <tr>
+          <td>Troubleshooting</td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/Troubleshooting" target="_blank" rel="noopener">Troubleshooting</a></td>
+          <td><a href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc/wiki/fr-Troubleshooting" target="_blank" rel="noopener">Dépannage</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="doc-links">
+      <a class="doc-link"
+         href="https://github.com/Cotechnoe/nextcloud-azure-marketplace-doc"
+         target="_blank" rel="noopener">
+        <span>📁</span>
+        <div>
+          <div>GitHub Repository — nextcloud-azure-marketplace-doc</div>
+          <div class="doc-desc">Complete documentation: wiki, deployment guides, ADRs, sizing and security</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://azuremarketplace.microsoft.com/en-US/marketplace/apps/cotechnoe.nextcloud-hub"
+         target="_blank" rel="noopener">
+        <span>☁️</span>
+        <div>
+          <div>Azure Marketplace Offer — Cotechnoe Cloud Hub</div>
+          <div class="doc-desc">Official offer page — one-click deployment on Azure</div>
+        </div>
+      </a>
+      <a class="doc-link"
+         href="https://nextcloud.com/hub/"
+         target="_blank" rel="noopener">
+        <span>📖</span>
+        <div>
+          <div>Official Nextcloud Hub Documentation</div>
+          <div class="doc-desc">Complete reference — apps, configuration, federation, security</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>© 2026 <a href="https://cotechnoe.com" target="_blank" rel="noopener">Cotechnoe inc.</a> — Michel Héon Ph.D. — Montréal</p>
+    <p style="margin-top:0.4rem;">
+      <a href="../index.html">← Back to home</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
