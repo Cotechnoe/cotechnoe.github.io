@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cotechnoe Cloud Hub (Nextcloud) — Azure Marketplace | Cotechnoe</title>
-  <meta name="description" content="Deploy Cotechnoe Cloud Hub on Azure Marketplace — self-hosted Nextcloud Hub on Ubuntu 24.04 LTS with Nginx, PHP-FPM 8.3, PostgreSQL 16 and Let's Encrypt. Ready in 5 minutes." />
+  <title>Nextcloud Server — Azure Marketplace | Cotechnoe</title>
+  <meta name="description" content="Deploy Nextcloud Server on Azure Marketplace — self-hosted Nextcloud Hub on Ubuntu 24.04 LTS with Nginx, PHP-FPM 8.3, PostgreSQL 16 and Let's Encrypt. Ready in 5 minutes." />
   <meta name="author" content="Michel Héon, Ph.D." />
   <style>
     :root {
@@ -202,7 +202,7 @@
   <div class="container">
     <a href="../index.html">← Cotechnoe</a>
     <span class="sep">/</span>
-    <span style="color:var(--text);">Cotechnoe Cloud Hub</span>
+    <span style="color:var(--text);">Nextcloud Server</span>
   </div>
 </nav>
 
@@ -212,7 +212,7 @@
     <div class="hero-inner">
       <div class="product-icon">🗂️</div>
       <div>
-        <h1>Cotechnoe Cloud Hub</h1>
+        <h1>Nextcloud Server</h1>
         <span class="version">Nextcloud Hub · Ubuntu 24.04 LTS · PHP-FPM 8.3 · PostgreSQL 16</span>
         <p>
           Self-hosted, secure file collaboration platform ready to deploy on Microsoft Azure.
@@ -284,7 +284,7 @@
       </div>
       <div class="feature">
         <h3>📊 Monitoring Ready</h3>
-        <p>Pre-configured for Azure Monitor — metrics, alerts and dashboards out of the box.</p>
+        <p>Compatible with Azure Monitor — host-level VM metrics collected automatically. Configure alerts and custom dashboards from the Azure Portal.</p>
       </div>
       <div class="feature">
         <h3>💾 Managed Data Disk</h3>
@@ -321,9 +321,9 @@ adminPublicKey      # SSH public key (OpenSSH — ed25519 or RSA 4096)
 vmSize              # e.g. Standard_D4s_v3
 dataDiskSizeGB      # Managed data disk size in GB (e.g. 128)
 sshSourceIP         # CIDR allowed for SSH (e.g. 203.0.113.0/32)
-nextcloudAdminUser  # Nextcloud admin username
-nextcloudAdminPass  # Nextcloud admin password (min. 12 chars)
-nextcloudDomain     # Domain name for TLS certificate</code></pre>
+nextcloudAdminUser      # Nextcloud admin username
+nextcloudAdminPassword  # Nextcloud admin password (min. 12 chars)
+nextcloudDomain         # Domain name for TLS certificate</code></pre>
 
     <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1.25rem 0 0.4rem;">2. Connect via SSH and verify services</h3>
     <pre><code># Connect to the VM
@@ -464,7 +464,7 @@ systemctl status nginx php8.3-fpm postgresql redis-server</code></pre>
          target="_blank" rel="noopener">
         <span>☁️</span>
         <div>
-          <div>Azure Marketplace Offer — Cotechnoe Cloud Hub</div>
+          <div>Azure Marketplace Offer — Nextcloud Server</div>
           <div class="doc-desc">Official offer page — one-click deployment on Azure</div>
         </div>
       </a>
