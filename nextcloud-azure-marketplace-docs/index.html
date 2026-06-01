@@ -314,26 +314,44 @@
       After deployment from Azure Marketplace, your Nextcloud instance is immediately accessible.
     </p>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Deploy from Azure Marketplace</h3>
-    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.3rem;">Fill in the required parameters during deployment:</p>
-    <pre><code>adminUsername       # VM SSH administrator username
-adminPublicKey      # SSH public key (OpenSSH — ed25519 or RSA 4096)
-vmSize              # e.g. Standard_D4s_v3
-dataDiskSizeGB      # Managed data disk size in GB (e.g. 128)
-sshSourceIP         # CIDR allowed for SSH (e.g. 203.0.113.0/32)
-nextcloudAdminUser      # Nextcloud admin username
-nextcloudAdminPassword  # Nextcloud admin password (min. 12 chars)
-nextcloudDomain         # Domain name for TLS certificate</code></pre>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Configure the VM in the Azure Portal</h3>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.3rem;">
+      In the <strong>Basics</strong> tab, set your VM name, region, size, SSH username and public key.
+      In the <strong>Networking</strong> tab, create a <strong>static</strong> public IP and allow ports 22, 80 and 443.
+    </p>
+    <p style="font-size:0.85rem; color:var(--muted); margin:0.75rem 0 0.3rem;">
+      ⚠️ <strong>Advanced tab — Custom data (required):</strong>
+      paste the following cloud-init block and replace the placeholder values. Without this, the first-boot service will fail and Nextcloud will not be installed.
+    </p>
+    <pre><code>#cloud-config
+write_files:
+  - path: /etc/nextcloud/config.env
+    owner: root:root
+    permissions: "0600"
+    content: |
+      NC_ADMIN_USER=ncadmin
+      NC_ADMIN_PASSWORD=YourStrongPassword123!
+      NC_DB_PASSWORD=AnotherStrongPassword456!
+      REDIS_PASSWORD=RedisPassword789!</code></pre>
+    <p style="font-size:0.82rem; color:var(--muted); margin-top:0.6rem;">
+      <code>NC_ADMIN_USER</code> / <code>NC_ADMIN_PASSWORD</code> — Nextcloud web admin credentials &nbsp;|&nbsp;
+      <code>NC_DB_PASSWORD</code> — PostgreSQL password &nbsp;|&nbsp;
+      <code>REDIS_PASSWORD</code> — Redis authentication.<br>
+      The trusted domain is auto-detected at first boot via Azure IMDS — no domain parameter needed.
+      <code>config.env</code> is securely shredded after first boot.
+    </p>
 
     <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1.25rem 0 0.4rem;">2. Connect via SSH and verify services</h3>
     <pre><code># Connect to the VM
-ssh -i ~/.ssh/id_ed25519 azureuser@&lt;vm-public-ip&gt;
+ssh -i ~/.ssh/&lt;your-key&gt; azureuser@&lt;vm-public-ip&gt;
 
 # Check all services are running
 systemctl status nginx php8.3-fpm postgresql redis-server</code></pre>
 
     <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1.25rem 0 0.4rem;">3. Open Nextcloud in your browser</h3>
-    <pre><code>https://&lt;your-domain&gt;.cloudapp.azure.com</code></pre>
+    <pre><code>https://&lt;vm-public-ip&gt;
+# or, once DNS is configured:
+https://&lt;your-domain&gt;</code></pre>
 
     <p style="font-size:0.85rem; color:var(--muted); margin-top:1rem;">
       Full step-by-step instructions in the
