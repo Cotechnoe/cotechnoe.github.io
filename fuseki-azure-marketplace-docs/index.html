@@ -277,13 +277,60 @@
     <h2>🚀 Quick Start</h2>
 
     <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1rem;">
-      After deployment from Azure Marketplace, Fuseki is immediately accessible.
+      Follow these steps to deploy Fuseki from Azure Marketplace and access it.
     </p>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Access the Web interface</h3>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1. Deploy from Azure Marketplace</h3>
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:0.5rem;">
+      Click <strong>Deploy Now</strong> on the Marketplace offer page to create the VM.
+    </p>
+
+    <div style="background:#2d1f0e; border:1px solid #92400e; border-radius:8px; padding:1rem; margin:0.75rem 0;">
+      <p style="color:#fbbf24; font-weight:600; margin-bottom:0.5rem;">⚠️ Required: Provide Custom Data before creating the VM</p>
+      <p style="font-size:0.88rem; color:var(--muted); margin-bottom:0.75rem;">
+        The VM image follows Azure Marketplace security policy 200.3.3.8 — the <code>fuseki</code> system user cannot be pre-created in the image.
+        It must be initialized at first boot via <strong>Custom Data</strong> (cloud-init). <strong>Without this, Fuseki will not start.</strong>
+      </p>
+      <p style="font-size:0.88rem; color:var(--muted); margin-bottom:0.5rem;">
+        <strong>Azure Portal:</strong> In the <em>Advanced</em> tab → <em>Custom data</em> field, paste:
+      </p>
+      <pre><code>#cloud-config
+runcmd:
+  - useradd -r -s /bin/false fuseki
+  - chown -R fuseki:fuseki /data/fuseki
+  - chown -R fuseki:fuseki /opt/fuseki
+  - systemctl daemon-reload
+  - systemctl enable fuseki
+  - systemctl start fuseki
+  - echo "Fuseki first boot setup complete" >> /var/log/fuseki-firstboot.log</code></pre>
+      <p style="font-size:0.88rem; color:var(--muted); margin-top:0.75rem; margin-bottom:0.5rem;">
+        <strong>Azure CLI:</strong>
+      </p>
+      <pre><code>az vm create \
+  --resource-group &lt;your-rg&gt; \
+  --name &lt;your-vm-name&gt; \
+  --image &lt;marketplace-image-urn&gt; \
+  --custom-data fuseki-first-boot.yaml \
+  ...</code></pre>
+    </div>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">1b. Open port 3030 in the Network Security Group</h3>
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:0.5rem;">
+      After VM creation, allow inbound traffic on port 3030:
+    </p>
+    <pre><code>az vm open-port \
+  --resource-group &lt;your-rg&gt; \
+  --name &lt;your-vm-name&gt; \
+  --port 3030 \
+  --priority 1001</code></pre>
+    <p style="font-size:0.88rem; color:var(--muted); margin-top:0.4rem;">
+      Or via the Azure Portal: <em>VM → Networking → Add inbound port rule → Port 3030, TCP</em>.
+    </p>
+
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Access the Web interface</h3>
     <pre><code>http://&lt;your-vm-ip&gt;:3030</code></pre>
 
-    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">2. Deploy the systemd service via Makefile</h3>
+    <h3 style="font-size:0.95rem; color:#f1f5f9; margin:1rem 0 0.4rem;">3. Deploy the systemd service via Makefile</h3>
     <pre><code># Deploy the service to the remote VM
 make service-deploy HOST=&lt;vm-ip&gt; SERVICE_FILE=fuseki-d2s-v3.service
 
